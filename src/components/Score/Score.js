@@ -1,29 +1,60 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Aluno from "../../assets/avatarAluno.png";
 import Trabalho from "../../assets/avatarTrabalhos.png";
 /* eslint-disable */
-import './styles.css';
+import "./styles.css";
 
-function Score({player, points, captures, status}) {
+function Score({ player, startClickGame, points, status }) {
+  let startVerifier = 0;
+  const [piecesBlack, setPiecesBlack] = useState(0);
+  const [piecesWhite, setPiecesWhite] = useState(0);
+  console.log(piecesWhite);
 
-  const[piecesBlack,setPiecesBlack] = useState(0);
-  const[piecesWhite,setPiecesWhite] = useState(0);
+  function setScore() {
+     
+    if (startClickGame) {
+      // console.log("player: "+player);
+      // console.log("status: "+status);
+      // console.log(piecesBlack);
+      if (startVerifier != 0){
+        status == "White" && player == "white"
+        ? setPiecesBlack(piecesBlack + 1)
+        : null;
 
-  function setScore(){
-    status==='White'&&player==="white" ? setPiecesWhite(piecesWhite+1) : null;
-    status==='Black'&&player==="black" ? setPiecesBlack(piecesBlack+1) : null;
+        status == "Black" && player == "white"
+        ? setPiecesWhite(piecesWhite + 1)
+        : null;
+      }
+      
+    }
   }
 
-  useEffect(() => {setScore()}, [status])
+  useEffect(() => {
+    setScore();
+  }, [status]);
 
   return (
     <div className="container">
-      <img src={player==='white' ? Aluno : Trabalho }/>
-      <div className={player==='white' ? "infoTextWhite" : "infoTextBlack"}>
-        <span>{player==='white' ? piecesWhite : piecesBlack} Peças colocadas</span>
+      <img src={player === "white" ? Aluno : Trabalho} />
+
+      <div className={player === "white" ? "infoTextWhite" : "infoTextBlack"}>
+        <h2>{piecesWhite}</h2>
+        {player === "white" ? (
+          <span>{piecesWhite} Peças colocadas</span>
+        ) : (
+          <span>{piecesBlack} Peças colocadas</span>
+        )}
       </div>
-      {status==='White'&&player==="white" ? <div className="infoSuaVez"><span>SUA VEZ</span></div> : null}
-      {status==='Black'&&player==="black" ? <div className="infoSuaVez"><span>SUA VEZ</span></div> : null}
+      {status === "White" && player === "white" ? (
+        <div className="infoSuaVez">
+          <span>SUA VEZ</span>
+        </div>
+      ) : null}
+      {status === "Black" && player === "black" ? (
+        <div className="infoSuaVez">
+          <span>SUA VEZ</span>
+        </div>
+      ) : null}
     </div>
   );
 }
