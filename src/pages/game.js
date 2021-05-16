@@ -4,7 +4,9 @@ import BlackBall from '../components/Balls/BlackBall/BlackBall';
 import WhiteBall from '../components/Balls/WhiteBall/WhiteBall';
 import Score from '../components/Score/Score';
 import Title from '../components/Title/Title';
-import background from "../Images/image66.png";
+import {
+  Route,
+} from "react-router-dom";
 
 function Square(props){
       return (
@@ -131,12 +133,16 @@ class Board extends React.Component {
         cols = cols + boardSize;
         for(let c = 0; c < cols-4; ++c) {
             if(Object.is(squares[c].type,BlackBall) && Object.is(squares[c+1].type,BlackBall)  && Object.is(squares[c+2].type,BlackBall)  && Object.is(squares[c+3].type,BlackBall)  && Object.is(squares[c+4].type,BlackBall) ){
-              console.log("ganhou Preto");
+              console.log("ganhou Preto!");
+              //changing page to winner page
+              document.location = '/endTrabalho';
               return squares[c];
             }
             //branco
             if(Object.is(squares[c].type,WhiteBall) && Object.is(squares[c+1].type,WhiteBall)  && Object.is(squares[c+2].type,WhiteBall)  && Object.is(squares[c+3].type,WhiteBall)  && Object.is(squares[c+4].type,WhiteBall) ){
               console.log("ganhou Branco");
+              //changing page to winner page
+              document.location = '/endEstudante';
               return squares[c];
             }
         }
@@ -148,11 +154,15 @@ class Board extends React.Component {
         for(let r = c; r < rows-(boardSize*4); r=r+boardSize) {
             if(Object.is(squares[r].type,BlackBall) && Object.is(squares[r+boardSize].type,BlackBall) && Object.is(squares[r+(boardSize*2)].type,BlackBall) && Object.is(squares[r+(boardSize*3)].type,BlackBall) && Object.is(squares[r+(boardSize*4)].type,BlackBall)){
               console.log("ganhou Preto");
+              //changing page to winner page
+              document.location = '/endTrabalho';
               return squares[r];
             }
             //verifica branco
             if(Object.is(squares[r].type,WhiteBall) && Object.is(squares[r+boardSize].type,WhiteBall) && Object.is(squares[r+(boardSize*2)].type,WhiteBall) && Object.is(squares[r+(boardSize*3)].type,WhiteBall) && Object.is(squares[r+(boardSize*4)].type,WhiteBall)){
               console.log("ganhou Branco");
+              //changing page to winner page
+              document.location = '/endEstudante';
               return squares[r];
             }
         }
@@ -166,11 +176,15 @@ class Board extends React.Component {
         for(let r = c; r < rows-(boardSize*4); r=r+19) {
             if(Object.is(squares[r].type,BlackBall) && Object.is(squares[r+(boardSize+1)].type,BlackBall) && Object.is(squares[r+(boardSize*2)+2].type,BlackBall) && Object.is(squares[r+(boardSize*3)+3].type,BlackBall) && Object.is(squares[r+(boardSize*4)+4].type,BlackBall)){
               console.log("ganhou Preto");
+              //changing page to winner page
+              document.location = '/endTrabalho';
               return squares[r];
             }
             //verifica branco
             if(Object.is(squares[r].type,WhiteBall) && Object.is(squares[r+(boardSize+1)].type,WhiteBall) && Object.is(squares[r+(boardSize*2)+2].type,WhiteBall) && Object.is(squares[r+(boardSize*3)+3].type,WhiteBall) && Object.is(squares[r+(boardSize*4)+4].type,WhiteBall)){
               console.log("ganhou Branco");
+              //changing page to winner page
+              document.location = '/endEstudante';
               return squares[r];
             }
         }
@@ -184,11 +198,15 @@ class Board extends React.Component {
         for(let r = c+(boardSize*3); r < rows; r=r+boardSize) {
             if(Object.is(squares[r].type,BlackBall) && Object.is(squares[r+(boardSize-1)].type,BlackBall) && Object.is(squares[r+(boardSize*2)-2].type,BlackBall) && Object.is(squares[r+(boardSize*3)-3].type,BlackBall) && Object.is(squares[r+(boardSize*4)-4].type,BlackBall)){
               console.log("ganhou Preto");
+              //changing page to winner page
+              document.location = '/endTrabalho';
               return squares[r];
             }
             //verifica branco
             if(Object.is(squares[r].type,WhiteBall) && Object.is(squares[r+(boardSize-1)].type,WhiteBall) && Object.is(squares[r+(boardSize*2)-2].type,WhiteBall) && Object.is(squares[r+(boardSize*3)-3].type,WhiteBall) && Object.is(squares[r+(boardSize*4)-4].type,WhiteBall)){
               console.log("ganhou Branco");
+              //changing page to winner page
+              document.location = '/endEstudante';
               return squares[r];
             }
         }

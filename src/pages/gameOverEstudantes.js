@@ -1,10 +1,10 @@
 import React from "react";
-import background from "../Images/begin.png";
+import background from "../Images/endEstudantes.jpeg";
 
 
-import ButtonBegin from "../components/Button/ButtonBegin/Button";
+import ButtonEndGame from "../components/Button/ButtonEnd/ButtonEnd";
 
-function Begin() {
+function EndEstudantes() {
   return (
     <>
     <div
@@ -16,10 +16,10 @@ function Begin() {
           color: "#f5f5f5"
         }}
       >
-        <ButtonBegin />
+        <ButtonEndGame />
     </div>
     </>
   );
 }
 
-export default Begin;
+export default EndEstudantes;
