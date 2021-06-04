@@ -36,15 +36,6 @@ function Score({ player, startClickGame, points, status }) {
   return (
     <div className="container">
       <img src={player === "white" ? Aluno : Trabalho} />
-
-      <div className={player === "white" ? "infoTextWhite" : "infoTextBlack"}>
-        <h2>{piecesWhite}</h2>
-        {player === "white" ? (
-          <span>{piecesWhite} Peças colocadas</span>
-        ) : (
-          <span>{piecesBlack} Peças colocadas</span>
-        )}
-      </div>
       {status === "White" && player === "white" ? (
         <div className="infoSuaVez">
           <span>SUA VEZ</span>
